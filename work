@@ -1,0 +1,12 @@
+import pandas as pd
+
+def load_data():
+    customers = pd.read_csv (r'C:\Users\firne\bip-python-unh\sales_analysis\data\customers.csv')
+    contracts = pd.read_csv (r'C:\Users\firne\bip-python-unh\sales_analysis\data\contracts.csv')
+    return contracts, customers
+    
+def combine_data
+    customers.rename(columns={'id':'customer_id'}, inplace=True)
+    customers.set_index('customer_id', inplace=True)
+    contracts.set_index('customer_id', inplace=True)
+    sales_data = customers.join(contracts, how='left')
